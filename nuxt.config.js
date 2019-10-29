@@ -11,10 +11,13 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name:'applicable-device', content:'pc,mobile' },
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel:'stylesheet',href:'//cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css'},
+      { rel:'stylesheet',href:'//cdn.bootcss.com/Swiper/4.5.1/css/swiper.min.css'},
     ],
   },
 
@@ -28,9 +31,6 @@ module.exports = {
   */
   css: [
     '~/assets/styles/main.scss'
-  ],
-  script:[
-    '~/assets/scripts/jquery.min.js'
   ],
   /*
   ** Plugins to load before mounting the App
