@@ -13,7 +13,7 @@
       class="content"
       @save="handlePost(false)"
     />
-
+    <!-- <edit-md/> -->
     <div class="category">
       <span class="tip">分类: </span>
       <div

@@ -15,7 +15,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
   },
 
   /*
@@ -29,7 +29,9 @@ module.exports = {
   css: [
     '~/assets/styles/main.scss'
   ],
-
+  script:[
+    '~/assets/scripts/jquery.min.js'
+  ],
   /*
   ** Plugins to load before mounting the App
   */

@@ -37,6 +37,10 @@ export default {
             path: '/admin/category',
           },
           {
+            name: '标签',
+            path: '/admin/tags',
+          },
+          {
             name: '新随笔',
             path: '/admin/posts',
           },

@@ -194,6 +194,40 @@ export const actions = {
   },
 
   /**
+   * category api
+   */
+  async getTags({ commit, state }) {
+    // 管理员可以看到所有分类
+    const { token } = state
+    const { data } = await ajax.get('/tags', {
+      headers: {
+        token,
+      },
+    })
+    commit('setData', {
+      key: 'tags',
+      value: data,
+    })
+    return data
+  },
+  async getTag({ commit }, id) {
+    const { data } = await ajax.get(`/tag/${id}`)
+    commit('setData', {
+      key: 'tag',
+      value: data,
+    })
+  },
+  async postTag({ commit }, body) {
+    return await ajax.post('/tag', body)
+  },
+  async patchTag({ commit }, body) {
+    return await ajax.patch(`/tag/${body.id}`, body)
+  },
+  async deleteTag({ commit }, id) {
+    return await ajax.delete(`/tag/${id}`)
+  },
+
+  /**
    * comment api
    */
   async getComments({ commit }) {
@@ -270,7 +304,9 @@ export const state = () => ({
   limit: 15,
   article: {},
   categories: [],
+  tags: [],
   category: {},
+  tag: {},
   comments: [],
   comment: {},
 })

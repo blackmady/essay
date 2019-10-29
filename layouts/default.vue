@@ -1,74 +1,6 @@
 <template>
   <div class="default container">
-    <div class="left">
-      <blog-nav />
-      <section class="search">
-        <input
-          v-model="keywords"
-          type="text"
-          autofocus
-          placeholder="文章搜索"
-          @keyup.enter="handleSearch"
-        >
-      </section>
-      <nuxt />
-    </div>
-
-    <aside class="right">
-      <div class="about">
-        <div class="intro">
-          <img
-            src="~/static/avatar.png"
-            alt="avatar"
-            class="avatar"
-            width="100px"
-          >
-
-          <ul>
-            <li>@{{ admin.nickname }}</li>
-            <li>{{ admin.description }}</li>
-          </ul>
-
-        </div>
-      </div>
-      <div class="category">
-        <h3>分类</h3>
-
-        <ul>
-          <li
-            v-for="item in categoryByCut"
-            :key="item.id"
-          >
-            <span v-if="!item.isShow">[私]</span>
-            <nuxt-link :to="`/?category=${item.id}&page=1`">{{ item.title }} ({{ item.total }})</nuxt-link>
-          </li>
-          <li v-if="categories.length > count">
-            <nuxt-link to="/category">全部分类 <span>&raquo;</span></nuxt-link>
-          </li>
-        </ul>
-      </div>
-
-      <div class="new">
-        <h3>最新</h3>
-        <ul>
-          <li
-            v-for="item in articlesNewCut"
-            :key="item.id"
-            class="dot"
-          >
-            <nuxt-link :to="`/posts/${item.id}`">{{ item.title }}</nuxt-link>
-          </li>
-        </ul>
-      </div>
-
-      <footer class="footer">
-        Powerd by
-        <a
-          href="https://github.com/wmui/essay"
-          target="_blank"
-        >Essay</a>
-      </footer>
-    </aside>
+    <nuxt />
   </div>
 </template>
 <script>
@@ -95,6 +27,18 @@ export default {
           content: this.seo.description,
         },
       ],
+      link:[{
+        href:"https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css",
+        rel:"stylesheel"
+      }],
+      script:[
+        {
+          src:'https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'
+        },
+        {
+          src:'https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js'
+        }
+      ]
     }
   },
   computed: {

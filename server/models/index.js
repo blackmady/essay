@@ -11,6 +11,7 @@ requireAll({
 const User = mongoose.model('User')
 const Article = mongoose.model('Article')
 const Category = mongoose.model('Category')
+// const Tag = mongoose.model('Tag')
 const Option = mongoose.model('Option')
 
 const mongoUrl = `mongodb://${globalConfig.mongodb.host}:${globalConfig.mongodb.port}/${globalConfig.mongodb.database}`

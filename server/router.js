@@ -2,6 +2,7 @@ const router = require('express').Router()
 const check = require('./middlewares/check.middleware')
 const user = require('./controllers/user.controller')
 const category = require('./controllers/category.controller')
+const tag = require('./controllers/tag.controller')
 const comment = require('./controllers/comment.controller')
 const article = require('./controllers/article.controller')
 const option = require('./controllers/option.controller')
@@ -30,21 +31,37 @@ router
     check.auth('token'),
     user.patchAdmin)
 
-router
-  .get('/api/categories',
+    router
+    .get('/api/categories',
+      check.filter('token'),
+      category.getCategories)
+    .get('/api/category/:id',
+      category.getCategory)
+    .post('/api/category',
+      check.auth('token'),
+      category.postCategory)
+    .patch('/api/category/:id',
+      check.auth('token'),
+      category.patchCategory)
+    .delete('/api/category/:id',
+      check.auth('token'),
+      category.deleteCategory)
+
+      router
+  .get('/api/tags',
     check.filter('token'),
-    category.getCategories)
-  .get('/api/category/:id',
-    category.getCategory)
-  .post('/api/category',
+    tag.getTags)
+  .get('/api/tag/:id',
+    tag.getTag)
+  .post('/api/tag',
     check.auth('token'),
-    category.postCategory)
-  .patch('/api/category/:id',
+    tag.postTag)
+  .patch('/api/tag/:id',
     check.auth('token'),
-    category.patchCategory)
-  .delete('/api/category/:id',
+    tag.patchTag)
+  .delete('/api/tag/:id',
     check.auth('token'),
-    category.deleteCategory)
+    tag.deleteTag)
 
 router
   .get('/api/comments',

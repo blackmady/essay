@@ -13,20 +13,6 @@
         >[置顶] </span>{{ item.title }}</nuxt-link>
       </div>
     </section>
-
-    <section class="page">
-      <button
-        :disabled="currentPage == 1"
-        class="prev small"
-        @click="handlePrev"
-      >上一页</button>
-      <span> {{ currentPage }} / {{ totalPage }}</span>
-      <button
-        :disabled="currentPage == totalPage"
-        class="next small"
-        @click="handleNext"
-      >下一页</button>
-    </section>
   </div>
 </template>
 

@@ -22,5 +22,6 @@ export default {
 
 <style lang="scss" scoped>
 .index {
+  
 }
 </style>
